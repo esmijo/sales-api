@@ -52,3 +52,7 @@ Route::get('/transactions/trans_sum', [SystemController::class, 'trans_sum']);
 
 Route::get('/transactions/{id}', [SystemController::class, 'show']);
 Route::get('/transactions/search/{customer}', [SystemController::class, 'search']);
+
+
+Route::get('/transactions/{date_from}/{date_to}', [SystemController::class, 'by_date']);
+Route::get('/inventory/{date_from}/{date_to}', [InventoryController::class, 'by_date']);

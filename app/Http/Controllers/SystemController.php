@@ -19,6 +19,17 @@ class SystemController extends Controller
         return Transaction::orderBy('trans_date', 'desc')->limit(1000)->get();
     }
 
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function by_date($date_from, $date_to)
+    {
+        return Transaction::whereBetween('datetime_created', [$date_from, $date_to])->orderBy('trans_date', 'desc')->limit(1000)->get();
+    }
+    
+
     public function TransactionWithBranch()
     {
         return Transaction::orderBy('trans_date', 'desc')->limit(1000)->get();

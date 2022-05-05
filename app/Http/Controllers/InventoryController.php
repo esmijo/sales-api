@@ -17,6 +17,17 @@ class InventoryController extends Controller
         return  Inventory::orderBy('datetime_created', 'desc')->limit(50)->get();
     }
 
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function by_date($date_from, $date_to)
+    {
+        return  Inventory::whereBetween('datetime_created', [$date_from, $date_to])->orderBy('datetime_created', 'desc')->limit(1000)->get();
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *
